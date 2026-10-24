@@ -6,10 +6,11 @@ import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 const sectionIds = navItems.map(item => item.href.slice(1))
 
-// Con 5 ítems, en celulares hace falta menos espacio para que entre en una sola fila.
+// Con 5 ítems, en celulares el texto y el espaciado se escalan con el ancho de la pantalla
+// para que el menú entre siempre en una sola fila (probado hasta 320 px).
 const compactStyle: CSSProperties & Record<`--${string}`, string> = {
-  '--gn-font': '12.5px',
-  '--gn-x': '9px',
+  '--gn-font': 'clamp(10px, 3.2vw, 12.5px)',
+  '--gn-x': 'clamp(5px, 2.1vw, 9px)',
   '--gn-gap': '0px',
 }
 
